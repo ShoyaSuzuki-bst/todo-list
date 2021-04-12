@@ -5,6 +5,7 @@ services:
     restart: always
     volumes:
       - ./containers/db:/docker-entrypoint-initdb.d
+      - db-data:/var/lib/postgresql/data
     environment:
       POSTGRES_PASSWORD: pass
       POSTGRES_INITDB_ARGS: "--encoding=UTF-8 --locale=C"
@@ -54,3 +55,5 @@ services:
     logging:
       driver: none
     container_name: selenium_chrome
+volumes:
+  db-data:
