@@ -5,7 +5,7 @@ services:
     restart: always
     volumes:
       - ./containers/db:/docker-entrypoint-initdb.d
-      - ./containers/db/db-data://var/lib/postgresql/data
+      - db-data:/var/lib/postgresql/data
     environment:
       POSTGRES_PASSWORD: pass
       POSTGRES_INITDB_ARGS: "--encoding=UTF-8 --locale=C"
