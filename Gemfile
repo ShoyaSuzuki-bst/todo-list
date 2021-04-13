@@ -49,6 +49,7 @@ group :development do
 
   #コード規程監視
   gem 'rubocop', require: false
+  gem 'pre-commit'
 end
 
 group :test do
