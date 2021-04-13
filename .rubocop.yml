@@ -1,5 +1,5 @@
-# 将来的には対応する規約の読込
-inherit_from: .rubocop_todo.yml
+# # 将来的には対応する規約の読込
+# inherit_from: .rubocop_todo.yml
 # 追加した規約ファイル読込
 require:
   - rubocop-rspec
