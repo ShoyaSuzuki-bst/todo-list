@@ -47,7 +47,7 @@ group :development do
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
 
-  # コード規程監視
+  # コーディング規約チェック
   gem 'rubocop', require: false
   gem 'rubocop-rspec', require: false
 end
