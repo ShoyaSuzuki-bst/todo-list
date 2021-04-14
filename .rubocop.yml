@@ -1,0 +1,60 @@
+# # 将来的には対応する規約の読込
+# inherit_from: .rubocop_todo.yml
+# 追加した規約ファイル読込
+require:
+  - rubocop-rspec
+AllCops:
+  # Rubyバージョン指定
+  TargetRubyVersion: 2.6
+  # 除外
+  Exclude:
+    - 'config.ru'
+    - 'bin/**'
+    - 'lib/**'
+    - 'db/**/*'
+    - 'config/**/*'
+    - 'script/**/*'
+    - !ruby/regexp /old_and_unused\.rb$/
+    - 'vendor/**/*'
+    - 'Gemfile'
+Lint/RaiseException:
+  Enabled: false
+Lint/StructNewOverride:
+  Enabled: false
+Style/HashEachMethods:
+  Enabled: false
+Style/HashTransformKeys:
+  Enabled: false
+Style/HashTransformValues:
+  Enabled: false
+# 日本語でのコメントを許可
+AsciiComments:
+  Enabled: false
+# クラスのコメント必須を無視
+Documentation:
+  Enabled: false
+# モジュール名::クラス名の定義を許可
+ClassAndModuleChildren:
+  Enabled: false
+# 文字リテラルのイミュータブル宣言を無視（freezeになるのはRuby3以降）
+Style/FrozenStringLiteralComment:
+  Enabled: false
+RSpec/ExampleLength:
+  Enabled: false
+Metrics/ClassLength:
+  Max: 200
+Metrics/ModuleLength:
+  Max: 200
+Layout/LineLength:
+  Max: 250
+  AllowHeredoc: true
+  AllowURI: true
+  IgnoredPatterns:
+    - '\A\s*?#'
+# Set max depth to 6
+RSpec/NestedGroups:
+  Max: 6
+Metrics/BlockLength:
+  Enabled: false
+Metrics/AbcSize:
+  Max: 30
