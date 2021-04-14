@@ -24,7 +24,7 @@
     </div>
     <div>
         <%= link_to "戻る", "/tasks/", class: "btn btn-link" %>
-        <%= link_to "/tasks/edit" do %>
+        <%= link_to "/tasks/#{@task.id}/edit" do %>
             <button class="btn btn-sm btn-outline-primary">編集</button>
         <% end %>
         <%= link_to "/tasks/#{@task.id}", method: :delete do %>
