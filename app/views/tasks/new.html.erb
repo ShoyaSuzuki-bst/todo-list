@@ -1,2 +1,7 @@
-<h1>Tasks#new</h1>
-<p>Find me in app/views/tasks/new.html.erb</p>
+<%= form_for @task, url: {action: "create"} do |f| %>
+  <%= f.text_field :name %>
+  <br/>
+  <%= f.text_area :detail, size: "60x12" %>
+  <br/>
+  <div class="text-right"><%= f.submit "Create" %></div>
+<% end %>
