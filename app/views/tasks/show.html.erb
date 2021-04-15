@@ -12,11 +12,7 @@
     <button class="mr-1 btn btn-sm btn-primary" disabled>ラベル名</button>
 </div>
 <div class="mt-5 task-detail">
-    <%=
-        # 改行コードを<br/>タグに変換する。
-        # Qiitaを参考にしたため指摘があれば変更。
-        raw(h(@task.detail).gsub(/\R/, "<br/>"))
-    %>
+    <%= simple_format(h(@task.detail)) %>
 </div>
 <div class="row">
     <div class="mr-auto">
