@@ -42,6 +42,7 @@ group :development, :test do
   # コーディング規約チェック
   gem 'rubocop', require: false
   gem 'rubocop-rspec', require: false
+  gem 'erb_lint', require: false
 end
 
 group :development do
