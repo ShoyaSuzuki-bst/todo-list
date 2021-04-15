@@ -4,7 +4,7 @@ class TasksController < ApplicationController
     @tasks = Task.all
   end
 
-  def show() end
+  def show; end
 
   def new
     @task = Task.new
@@ -21,7 +21,7 @@ class TasksController < ApplicationController
     end
   end
 
-  def edit() end
+  def edit; end
 
   def update
     if @task.update(task_params)
@@ -36,7 +36,7 @@ class TasksController < ApplicationController
   def destroy
     if @task.destroy
       flash[:success] = '正常に削除されました。'
-      redirect_to "/"
+      redirect_to root_path
     else
       flash.now[:danger] = '削除されませんでした。'
       render :show
