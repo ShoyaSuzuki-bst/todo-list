@@ -1,5 +1,5 @@
 class TasksController < ApplicationController
-  before_action :set_task, only: %i[show update edit delete]
+  before_action :set_task, only: %i[show update edit destroy]
   def index
     @tasks = Task.all
   end
@@ -13,8 +13,10 @@ class TasksController < ApplicationController
   def create
     @task = Task.create(task_params)
     if @task.save
-      redirect_to @task, notice: 'success'
+      flash[:success] = '正常に作成されました。'
+      redirect_to @task
     else
+      flash.now[:danger] = '作成されませんでした。'
       render :new
     end
   end
@@ -23,13 +25,23 @@ class TasksController < ApplicationController
 
   def update
     if @task.update(task_params)
-      redirect_to @task, notice: 'success'
+      flash[:success] = '正常に更新されました。'
+      redirect_to @task
     else
+      flash.now[:danger] = '更新されませんでした。'
       render :edit
     end
   end
 
-  def destroy() end
+  def destroy
+    if @task.destroy
+      flash[:success] = '正常に削除されました。'
+      redirect_to "/"
+    else
+      flash.now[:danger] = '削除されませんでした。'
+      render :show
+    end
+  end
 
   private
 
