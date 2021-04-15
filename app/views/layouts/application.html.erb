@@ -5,12 +5,12 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
-    <%= stylesheet_link_tag    'application', media: 'all' %>
+    <%= stylesheet_link_tag 'application', media: 'all' %>
     <%= javascript_include_tag 'application' %>
   </head>
 
   <body>
-    <%= render "layouts/header" %>
+    <%= render 'layouts/header' %>
     <div class="flash_message text-center">
         <% flash.each do |message_type, message| %>
           <p class="alert alert-<%= message_type %>">
