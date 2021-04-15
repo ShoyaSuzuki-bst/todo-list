@@ -1,9 +1,5 @@
 <div class="mt-5">
-    <%= form_for @task, url: {action: "update"} do |f| %>
-        <%= f.text_field :name, placeholder: "What's task name?", value: @task.name, class: "form-control" %>
-        <br/>
-        <%= f.text_area :detail, placeholder: "task detail", size: "60x12", value: @task.detail, class: "form-control" %>
-        <br/>
-        <div class="text-right"><%= f.submit "更新", class: "btn btn-warning" %></div>
+    <%= form_with model: @task, local: true do |f| %>
+        <%= render 'layouts/task_form', f: f, is_edit: true %>
     <% end %>
 </div>
