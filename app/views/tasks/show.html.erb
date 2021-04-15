@@ -23,11 +23,11 @@
         終了期日：yyyy/mm/dd
     </div>
     <div>
-        <%= link_to "戻る", "/tasks/", class: "btn btn-link" %>
-        <%= link_to "/tasks/#{@task.id}/edit" do %>
+        <%= link_to "戻る", root_path, class: "btn btn-link" %>
+        <%= link_to edit_task_path(@task.id) do %>
             <button class="btn btn-sm btn-outline-primary">編集</button>
         <% end %>
-        <%= link_to "/tasks/#{@task.id}", method: :delete do %>
+        <%= link_to task_path, method: :delete do %>
             <button class="btn btn-sm btn-outline-danger">削除</button>
         <% end %>
     </div>

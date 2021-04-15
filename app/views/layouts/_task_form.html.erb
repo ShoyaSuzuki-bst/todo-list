@@ -1,0 +1,9 @@
+<%= f.text_field :name, placeholder: "What's task name?", class: "form-control" %>
+<br/>
+<%= f.text_area :detail, placeholder: "task detail", size: "60x12", class: "form-control" %>
+<br/>
+<% if local_assigns[:is_edit].present? %>
+  <div class="text-right"><%= f.submit "更新", class: "btn btn-warning" %></div>
+<% else %>
+  <div class="text-right"><%= f.submit "作成", class: "btn btn-primary" %></div>
+<% end %>

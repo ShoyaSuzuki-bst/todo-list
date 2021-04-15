@@ -36,7 +36,7 @@ class TasksController < ApplicationController
   def destroy
     if @task.destroy
       flash[:success] = '正常に削除されました。'
-      redirect_to "/"
+      redirect_to root_path
     else
       flash.now[:danger] = '削除されませんでした。'
       render :show
