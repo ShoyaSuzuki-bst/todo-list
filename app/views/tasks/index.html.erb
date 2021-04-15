@@ -1,0 +1,24 @@
+<div class="mt-5 list-group list-group-flush">
+    <div class="list-group-item">
+        <div class="row">
+            <div class="col">
+                naem
+            </div>
+            <div class="col">
+                detail
+            </div>
+        </div>
+    </div>
+    <% @tasks.each do |t| %>
+        <%= link_to "/tasks/#{t.id}", class: "list-group-item list-group-item-action" do %>
+            <div class="row">
+                <div class="col">
+                    <%= t.name %>
+                </div>
+                <div class="col">
+                    <%= t.detail %>
+                </div>
+            </div>
+        <% end %>
+    <% end %>
+</div>

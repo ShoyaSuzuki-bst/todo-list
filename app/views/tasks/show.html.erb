@@ -1,0 +1,30 @@
+<div class="mt-5 row">
+    <div class="mr-auto">
+        <span class="h2"><%= @task.name %></span>
+    </div>
+    <div>
+        <span class="h2 text-danger">状態</span>
+    </div>
+</div>
+<div class="my-3 row">
+    <button class="mr-1 btn btn-sm btn-primary" disabled>ラベル名</button>
+    <button class="mr-1 btn btn-sm btn-primary" disabled>ラベル名</button>
+    <button class="mr-1 btn btn-sm btn-primary" disabled>ラベル名</button>
+</div>
+<div class="mt-5 task-detail">
+    <%= @task.detail %>
+</div>
+<div class="row">
+    <div class="mr-auto">
+        終了期日：yyyy/mm/dd
+    </div>
+    <div>
+        <%= link_to "戻る", "/tasks/", class: "btn btn-link" %>
+        <%= link_to "/tasks/edit" do %>
+            <button class="btn btn-sm btn-outline-primary">編集</button>
+        <% end %>
+        <%= link_to "/tasks/#{@task.id}", method: :delete do %>
+            <button class="btn btn-sm btn-outline-danger">削除</button>
+        <% end %>
+    </div>
+</div>

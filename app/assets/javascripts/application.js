@@ -13,3 +13,8 @@
 //= require rails-ujs
 //= require activestorage
 //= require_tree .
+
+// 以下後から追記
+//= require jquery3
+//= require popper
+//= require bootstrap
