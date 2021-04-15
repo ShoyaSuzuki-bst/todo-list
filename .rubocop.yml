@@ -39,6 +39,9 @@ ClassAndModuleChildren:
 # 文字リテラルのイミュータブル宣言を無視（freezeになるのはRuby3以降）
 Style/FrozenStringLiteralComment:
   Enabled: false
+# シンボルの配列を許可
+Style/SymbolArray:
+  Enabled: false
 RSpec/ExampleLength:
   Enabled: false
 Metrics/ClassLength:
