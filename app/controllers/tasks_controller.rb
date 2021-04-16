@@ -9,7 +9,7 @@ class TasksController < ApplicationController
   end
 
   # パラメータからidを取得しidに合致するタスクを取得。
-  # @param [Date] id タスクのID
+  # @param [integer] id タスクのID
   def show; end
 
   # 新しいタスクインスタンスを作成。
