@@ -17,6 +17,7 @@ AllCops:
     - !ruby/regexp /old_and_unused\.rb$/
     - 'vendor/**/*'
     - 'Gemfile'
+    - 'spec/**/*.rb'
 Lint/RaiseException:
   Enabled: false
 Lint/StructNewOverride:
