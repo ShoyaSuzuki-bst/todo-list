@@ -70,6 +70,7 @@ class TasksController < ApplicationController
   end
 
   # ストロングパラメータによってタスクのnameとdetailのみを許可
+  # @return [hash] {name: params[:name], detail: params[:detail]} フォームから入力されるデータ
   def task_params
     params.require(:task).permit(:name, :detail)
   end
