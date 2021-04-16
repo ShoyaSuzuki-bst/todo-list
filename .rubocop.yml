@@ -37,8 +37,9 @@ Documentation:
 ClassAndModuleChildren:
   Enabled: false
 # 文字リテラルのイミュータブル宣言を無視（freezeになるのはRuby3以降）
+# 追記（2021/4/16:鈴木）：現在カリキュラム実行中のためtrueへ変更
 Style/FrozenStringLiteralComment:
-  Enabled: false
+  Enabled: true
 # シンボルの配列を許可
 Style/SymbolArray:
   Enabled: false
