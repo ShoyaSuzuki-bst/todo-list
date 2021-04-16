@@ -38,7 +38,7 @@ class TasksController < ApplicationController
 
   # フォームから受け取った情報をもとに既存のタスクを更新。
   # @param [string] name タスク名
-  # @maram [text] detail タスクの詳細
+  # @param [text] detail タスクの詳細
   def update
     if @task.update(task_params)
       flash[:success] = '正常に更新されました。'
