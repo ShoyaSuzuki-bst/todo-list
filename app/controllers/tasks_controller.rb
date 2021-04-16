@@ -9,6 +9,7 @@ class TasksController < ApplicationController
   end
 
   # パラメータからidを取得しidに合致するタスクを取得。
+  # @param [Date] id タスクのID
   def show; end
 
   # 新しいタスクインスタンスを作成。
@@ -17,6 +18,8 @@ class TasksController < ApplicationController
   end
 
   # フォームから受け取った情報をもとに新しいタスクを作成。
+  # @param [string] name タスク名
+  # @param [text] detail タスクの詳細
   def create
     @task = Task.create(task_params)
     if @task.save
@@ -29,9 +32,12 @@ class TasksController < ApplicationController
   end
 
   # パラメータからidを取得しidに合致するタスクを取得。編集画面として表示。
+  # @param [integer] id タスクのID
   def edit; end
 
   # フォームから受け取った情報をもとに既存のタスクを更新。
+  # @param [string] name タスク名
+  # @maram [text] detail タスクの詳細
   def update
     if @task.update(task_params)
       flash[:success] = '正常に更新されました。'
@@ -43,6 +49,7 @@ class TasksController < ApplicationController
   end
 
   # パラメータからidを取得しidに合致するタスクを削除。
+  # @param [integer] id タスクのID
   def destroy
     if @task.destroy
       flash[:success] = '正常に削除されました。'
