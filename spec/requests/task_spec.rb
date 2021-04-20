@@ -33,10 +33,17 @@ RSpec.describe "Tasks controller", type: :request do
   describe "POST /create" do
     before { ActionController::Base.allow_forgery_protection = false }
     after  { ActionController::Base.allow_forgery_protection = true }
-    context 'http response check' do
+    context 'when input valid params' do
       it 'return status 302(redirect to :show)' do
-        post '/tasks/', params: {task: attributes_for(:task)}
+        post tasks_path, params: {task: attributes_for(:task)}
         expect(response).to have_http_status(302)
+      end
+    end
+
+    context 'when input invalid params' do
+      it 'return status 200(with validation error)' do
+        post tasks_path params: { task: attributes_for(:blankname) }
+        expect(response).to have_http_status(200)
       end
     end
   end
@@ -55,7 +62,25 @@ RSpec.describe "Tasks controller", type: :request do
     after  { ActionController::Base.allow_forgery_protection = true }
     context 'http response check' do
       it 'return status 200(redirect to :show)' do
-        patch "/tasks/#{@task.id}", params: {task: attributes_for(:task)}
+        patch task_path(@task.id), params: {task: attributes_for(:task)}
+        expect(response).to have_http_status(302)
+      end
+    end
+
+    context 'when input invalid params' do
+      it 'return status 200(with validation error)' do
+        patch task_path(@task.id), params: { task: attributes_for(:blankname) }
+        expect(response).to have_http_status(200)
+      end
+    end
+  end
+
+  describe "DELETE /destroy" do
+    before { ActionController::Base.allow_forgery_protection = false }
+    after  { ActionController::Base.allow_forgery_protection = true }
+    context 'http response check' do
+      it 'return status 302(redirect to :index)' do
+        delete task_path(@task.id)
         expect(response).to have_http_status(302)
       end
     end
