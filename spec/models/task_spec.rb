@@ -11,11 +11,7 @@ RSpec.describe Task, type: :model do
     context 'when invalid' do # name when invalid （名前が無効なとき）
       let!(:name) { nil }
 
-      # it { expect(task).to be_invalid }
-      it 'expect has errors' do
-        task.valid?
-        expect(task.errors.messages[:name]).to include("can't be blank")
-      end
+      it { expect(task).to be_invalid }
     end
   end
 end
