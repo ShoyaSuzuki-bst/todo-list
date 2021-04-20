@@ -29,5 +29,7 @@ module App
 
     # Don't generate system test files.
     config.generators.system_tests = nil
+    # タイムゾーンを日本へ変更
+    config.time_zone = 'Tokyo'
   end
 end
