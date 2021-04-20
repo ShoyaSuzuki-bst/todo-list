@@ -3,6 +3,11 @@ require 'rails_helper'
 RSpec.describe "Tasks controller", type: :request do
   before { @task = FactoryBot.create(:task) }
 
+  shared_context 'allow_csrf' do
+    before { ActionController::Base.allow_forgery_protection = false }
+    after  { ActionController::Base.allow_forgery_protection = true }
+  end
+
   describe "GET /index" do
     context'http response check' do
       it 'return status 200' do
@@ -31,8 +36,7 @@ RSpec.describe "Tasks controller", type: :request do
   end
 
   describe "POST /create" do
-    before { ActionController::Base.allow_forgery_protection = false }
-    after  { ActionController::Base.allow_forgery_protection = true }
+    include_context 'allow_csrf'
     context 'when input valid params' do
       it 'return status 302(redirect to :show)' do
         post tasks_path, params: {task: attributes_for(:task)}
@@ -58,8 +62,7 @@ RSpec.describe "Tasks controller", type: :request do
   end
 
   describe "PATCH /update" do
-    before { ActionController::Base.allow_forgery_protection = false }
-    after  { ActionController::Base.allow_forgery_protection = true }
+    include_context 'allow_csrf'
     context 'http response check' do
       it 'return status 200(redirect to :show)' do
         patch task_path(@task.id), params: {task: attributes_for(:task)}
@@ -76,8 +79,7 @@ RSpec.describe "Tasks controller", type: :request do
   end
 
   describe "DELETE /destroy" do
-    before { ActionController::Base.allow_forgery_protection = false }
-    after  { ActionController::Base.allow_forgery_protection = true }
+    include_context 'allow_csrf'
     context 'http response check' do
       it 'return status 302(redirect to :index)' do
         delete task_path(@task.id)
