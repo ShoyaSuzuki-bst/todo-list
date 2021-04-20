@@ -17,14 +17,14 @@
     </div>
     <% @tasks.each do |t| %>
         <%= link_to task_path(t.id), class: 'list-group-item list-group-item-action' do %>
-            <div class="row">
-                <div class="col text-truncate">
+            <div class="row task-row">
+                <div class="col text-truncate task-name">
                     <%= t.name %>
                 </div>
-                <div class="col text-truncate">
+                <div class="col text-truncate task-detail">
                     <%= t.detail %>
                 </div>
-                <div class="col text-truncate">
+                <div class="col text-truncate task-created_at">
                     <%= t.created_at.strftime('%Y/%m/%d %H:%M:%S') %>
                 </div>
             </div>
