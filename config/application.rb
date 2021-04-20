@@ -31,5 +31,6 @@ module App
     config.generators.system_tests = nil
     # タイムゾーンを日本へ変更
     config.time_zone = 'Tokyo'
+    config.active_record.default_timezone = :local
   end
 end
