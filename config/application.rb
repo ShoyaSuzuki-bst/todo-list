@@ -29,5 +29,8 @@ module App
 
     # Don't generate system test files.
     config.generators.system_tests = nil
+
+    # localeを日本語にする
+    config.i18n.default_locale = :ja
   end
 end
