@@ -39,6 +39,7 @@ group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
   # テスト用
   gem 'rspec-rails'
+  gem 'factory_bot_rails'
   # コーディング規約チェック
   gem 'rubocop', require: false
   gem 'rubocop-rspec', require: false
