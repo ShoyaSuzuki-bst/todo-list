@@ -1,9 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe "Tasks controller", type: :request do
-  before do
-    @task = FactoryBot.create(:task)
-  end
+  before { @task = FactoryBot.create(:task) }
 
   describe "GET /index" do
     context'http response check' do
