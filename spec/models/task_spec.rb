@@ -1,17 +1,21 @@
 RSpec.describe Task, type: :model do
-  it 'タスクとその詳細を登録することができる。' do
-    task = Task.new(name: 'test task', detail: 'これはテスト用のタスクです。')
-    expect(task).to be_valid
-  end
+  describe 'name' do
+    let(:task) { FactoryBot.build(:task, name: name) }
 
-  it 'タスク登録時、タスク名が指定されないと登録することができない。' do
-    task = Task.new(name: nil, detail: 'バリデーションテスト')
-    task.valid?
-    expect(task.errors[:name]).to include("can't be blank")
-  end
+    context 'when valid' do # name when valid （名前が有効なとき）
+      let(:name) { 'test task' }
 
-  it 'タスク詳細は空白でも登録することができる。' do
-    task = Task.new(name: 'test task', detail: nil)
-    expect(task).to be_valid
+      it { expect(task).to be_valid }
+    end
+
+    context 'when invalid' do # name when invalid （名前が無効なとき）
+      let!(:name) { nil }
+
+      # it { expect(task).to be_invalid }
+      it 'expect has errors' do
+        task.valid?
+        expect(task.errors.messages[:name]).to include("can't be blank")
+      end
+    end
   end
 end

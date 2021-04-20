@@ -16,7 +16,7 @@ RSpec.describe "Tasks controller", type: :request do
 
   describe "GET /show" do
     context 'http response check' do
-      it 'http status is 200' do
+      it 'return status 200' do
         get task_path(@task.id)
         expect(response).to have_http_status(200)
       end
@@ -25,7 +25,7 @@ RSpec.describe "Tasks controller", type: :request do
 
   describe "GET /new" do
     context 'http response check' do
-      it 'http status is 200' do
+      it 'return status 200' do
         get new_task_path
         expect(response).to have_http_status(200)
       end
@@ -36,7 +36,7 @@ RSpec.describe "Tasks controller", type: :request do
     before { ActionController::Base.allow_forgery_protection = false }
     after  { ActionController::Base.allow_forgery_protection = true }
     context 'http response check' do
-      it 'http status is 302(redirect to :show)' do
+      it 'return status 302(redirect to :show)' do
         post '/tasks/', params: {task: attributes_for(:task)}
         expect(response).to have_http_status(302)
       end
@@ -45,7 +45,7 @@ RSpec.describe "Tasks controller", type: :request do
 
   describe "GET /edit" do
     context 'http response check' do
-      it 'http status is 200' do
+      it 'return status 200' do
         get edit_task_path(@task.id)
         expect(response).to have_http_status(200)
       end
@@ -56,7 +56,7 @@ RSpec.describe "Tasks controller", type: :request do
     before { ActionController::Base.allow_forgery_protection = false }
     after  { ActionController::Base.allow_forgery_protection = true }
     context 'http response check' do
-      it 'http status is 200(redirect to :show)' do
+      it 'return status 200(redirect to :show)' do
         patch "/tasks/#{@task.id}", params: {task: attributes_for(:task)}
         expect(response).to have_http_status(302)
       end
