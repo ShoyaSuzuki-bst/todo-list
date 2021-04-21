@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe "Tasks controller", type: :request do
-  before { @task = FactoryBot.create(:task) }
+  let(:task) { FactoryBot.create(:task) }
 
   shared_context 'allow_csrf' do
     before { ActionController::Base.allow_forgery_protection = false }
@@ -20,7 +20,7 @@ RSpec.describe "Tasks controller", type: :request do
   describe "GET /show" do
     context 'http response check' do
       it 'return status 200' do
-        get task_path(@task.id)
+        get task_path(task.id)
         expect(response).to have_http_status(200)
       end
     end
@@ -55,7 +55,7 @@ RSpec.describe "Tasks controller", type: :request do
   describe "GET /edit" do
     context 'http response check' do
       it 'return status 200' do
-        get edit_task_path(@task.id)
+        get edit_task_path(task.id)
         expect(response).to have_http_status(200)
       end
     end
@@ -65,14 +65,14 @@ RSpec.describe "Tasks controller", type: :request do
     include_context 'allow_csrf'
     context 'http response check' do
       it 'return status 200(redirect to :show)' do
-        patch task_path(@task.id), params: {task: attributes_for(:task)}
+        patch task_path(task.id), params: {task: attributes_for(:task)}
         expect(response).to have_http_status(302)
       end
     end
 
     context 'when input invalid params' do
       it 'return status 200(with validation error)' do
-        patch task_path(@task.id), params: { task: attributes_for(:blankname) }
+        patch task_path(task.id), params: { task: attributes_for(:blankname) }
         expect(response).to have_http_status(200)
       end
     end
@@ -82,7 +82,7 @@ RSpec.describe "Tasks controller", type: :request do
     include_context 'allow_csrf'
     context 'http response check' do
       it 'return status 302(redirect to :index)' do
-        delete task_path(@task.id)
+        delete task_path(task.id)
         expect(response).to have_http_status(302)
       end
     end
