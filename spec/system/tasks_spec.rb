@@ -7,7 +7,7 @@ RSpec.describe "Tasks", type: :system do
 
     # create_atが異なる4つのタスクを作成
     [*0..3].each do |i|
-      FactoryBot.create(:task, name: 'test2', created_at: Time.current + i.days)
+      FactoryBot.create(:task, name: 'test', created_at: Time.current + i.days)
     end
     context 'access /tasks/index' do
       it 'is expected tasks list desc' do
