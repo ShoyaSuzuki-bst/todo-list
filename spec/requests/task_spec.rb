@@ -46,7 +46,7 @@ RSpec.describe "Tasks controller", type: :request do
 
     context 'when input invalid params' do
       it 'return status 200(with validation error)' do
-        post tasks_path params: { task: attributes_for(:blank_name) }
+        post tasks_path params: { task: attributes_for(:task, :blank_name) }
         expect(response).to have_http_status(200)
       end
     end
@@ -72,7 +72,7 @@ RSpec.describe "Tasks controller", type: :request do
 
     context 'when input invalid params' do
       it 'return status 200(with validation error)' do
-        patch task_path(task.id), params: { task: attributes_for(:blank_name) }
+        patch task_path(task.id), params: { task: attributes_for(:task, :blank_name) }
         expect(response).to have_http_status(200)
       end
     end
