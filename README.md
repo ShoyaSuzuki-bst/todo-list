@@ -13,3 +13,6 @@ Googleドライブより
 https://drive.google.com/file/d/1vYhzFwIWhX5mseK_ycKz6x7JzyQhElJJ/view?usp=sharing
 ## モデル図
 ![](curriculum_doc/images/IMG_0004.JPG)
+
+## デプロイ方法
+アクセスは[こちら(todo-list)](https://todolist-curriculum.herokuapp.com/)
