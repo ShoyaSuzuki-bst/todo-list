@@ -13,7 +13,7 @@ class TasksController < ApplicationController
   def show; end
 
   # 新しいタスクインスタンスを作成。
-  # @return [object] @task タスクインスタンス
+  # @return [Task] @task タスクインスタンス
   def new
     @task = Task.new
   end
