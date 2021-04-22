@@ -39,6 +39,7 @@ group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
   # テスト用
   gem 'rspec-rails'
+  gem 'factory_bot_rails'
   # コーディング規約チェック
   gem 'rubocop', require: false
   gem 'rubocop-rspec', require: false
@@ -52,6 +53,8 @@ group :development do
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
+  # ドキュメンテーションツール
+  gem 'yard'
 end
 
 group :test do
@@ -62,6 +65,6 @@ end
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
-#フロント技術
+# フロント技術
 gem 'bootstrap', '~> 4.3.1'
 gem 'jquery-rails'

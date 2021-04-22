@@ -1,3 +1,13 @@
+<% if @task.errors.any? %>
+<div class="alert alert-danger">
+  <ul>
+  <% @task.errors.full_messages.each do |msg| %>
+    <li><%= msg %></li>
+  <% end -%>
+  </ul>
+</div>
+<% end -%>
+
 <%= f.text_field :name, placeholder: 'タスク名を入力してください', class: 'form-control' %>
 <br>
 <%= f.text_area :detail, placeholder: 'タスクの詳細', size: '60x12', class: 'form-control' %>
