@@ -14,6 +14,7 @@ RUN mkdir -p $APP_HOME
 WORKDIR $APP_HOME
 ADD Gemfile $APP_HOME/Gemfile
 ADD Gemfile.lock $APP_HOME/Gemfile.lock
+COPY . $APP_HOME
 
 ENV BUNDLE_DISABLE_SHARED_GEMS 1
 RUN bundle install -j4
