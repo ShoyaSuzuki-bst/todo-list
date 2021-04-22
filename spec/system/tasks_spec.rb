@@ -18,7 +18,7 @@ RSpec.describe "Tasks", type: :system do
         # allメソッドは上から順番に格納するはずなので、正常に動作しているならばこの時点で「作成日の新しい順」になっている。
         # string array
         created_datetimes = all('div.task-row div.task-created_at').map{ |i| i.text.in_time_zone }
-        # 「作成日の新しい順」となっているはずのdateと、それを後からソートしたもので比較する。
+        # 「作成日の新しい順」となっているはずのdateと、DBから参照したデータをソートしたもので比較する。
         expect(created_datetimes).to eq(valid_datetimes)
       end
     end
