@@ -17,3 +17,6 @@ ADD Gemfile.lock $APP_HOME/Gemfile.lock
 
 ENV BUNDLE_DISABLE_SHARED_GEMS 1
 RUN bundle install -j4
+
+EXPOSE 3000
+CMD [/bin/sh -c "rm -f /var/src/app/tmp/pids/server.pid;bundle exec rails s -b 0.0.0.0"]
