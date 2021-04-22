@@ -13,7 +13,7 @@ class TasksController < ApplicationController
   def show; end
 
   # 新しいタスクインスタンスを作成。
-  # @return [object] @task タスクインスタンス
+  # @return [Task] @task タスクインスタンス
   def new
     @task = Task.new
   end
@@ -62,7 +62,7 @@ class TasksController < ApplicationController
   private
 
   # パラメータからのidをもとに合致するタスクを @task に代入
-  # @return [object] @task タスクインスタンス
+  # @return [Task] @task タスクインスタンス
   def set_task
     @task = Task.find(params[:id])
   end
