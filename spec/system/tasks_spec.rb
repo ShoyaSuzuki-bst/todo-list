@@ -6,7 +6,7 @@ RSpec.describe "Tasks", type: :system do
   describe '/tasks/index' do
 
     # create_atが異なる4つのタスクを作成
-    [*0..3].each do |i|
+    (0..3).each do |i|
       FactoryBot.create(:task, name: 'test', created_at: Time.current + i.days)
     end
     context 'access /tasks/index' do
