@@ -1,6 +1,6 @@
 build:
   config:
-    RAILS_ENV: production
+    RAILS_ENV: development
     PG_DATABASE: postgres
     PG_PASSWORD: pass
     PG_USER: postgres
