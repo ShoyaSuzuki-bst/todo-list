@@ -5,5 +5,6 @@ build:
     PG_PASSWORD: pass
     PG_USER: postgres
     SELENIUM_DRIVER_URL: http://selenium_chrome:4444/wd/hub
+    RAILS_SERVE_STATIC_FILES: true
   docker:
     web: Dockerfile
