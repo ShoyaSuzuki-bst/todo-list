@@ -1,3 +1,9 @@
 build:
+  config:
+    RAILS_ENV: production
+    PG_DATABASE: postgres
+    PG_PASSWORD: pass
+    PG_USER: postgres
+    SELENIUM_DRIVER_URL: http://selenium_chrome:4444/wd/hub
   docker:
     web: Dockerfile
