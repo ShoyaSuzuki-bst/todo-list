@@ -20,4 +20,4 @@ ENV BUNDLE_DISABLE_SHARED_GEMS 1
 RUN bundle install -j4
 
 EXPOSE 3000
-CMD ["bundle", "exec", "rails", "s", "-b", "0.0.0.0"]
+CMD ["bundle", "exec", "rails", "s"]
