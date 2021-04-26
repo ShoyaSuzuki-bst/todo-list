@@ -26,3 +26,8 @@ https://drive.google.com/file/d/1vYhzFwIWhX5mseK_ycKz6x7JzyQhElJJ/view?usp=shari
  - config/environment/production
    - `config.public_file_server.enabled = true`を設定
    - `config.assets.compile = true`を設定（パフォーマンス的には適切ではないが、利便性のため設定しておくと無難だと思われる。）
+
+### 手順
+ - `git add .`
+ - `git commit -m "適当なコミットメッセージを入力"`
+ - `git push heroku master`(マスターブランチではないブランチをプッシュする場合は`git push heroku <ブランチ名>:main`)
