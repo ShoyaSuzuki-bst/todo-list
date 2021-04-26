@@ -18,7 +18,7 @@ services:
     ports:
       - '80:3000'
     environment:
-      # RAILS_ENV: development
+      RAILS_ENV: production
       PG_DATABASE: postgres
       PG_PASSWORD: pass
       PG_USER: postgres
