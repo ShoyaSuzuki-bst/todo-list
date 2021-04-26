@@ -23,7 +23,7 @@ RSpec.describe Task, type: :model do
 
     context 'when detail is overflow' do
       let(:overflow_detail) { FactoryBot.build(:task, :overflow_detail) }
-      it 'is expected to return error [タスク詳細sは660文字以内で入力してください' do
+      it 'is expected to return error [タスク詳細は660文字以内で入力してください' do
         overflow_detail.valid?
         expect(overflow_detail.errors[:detail]).to include('は660文字以内で入力してください')
       end
