@@ -16,7 +16,8 @@
 </div>
 <div class="row">
   <div class="mr-auto">
-    終了期日：yyyy/mm/dd
+    終了期日：
+    <%= @task.limit.present? ? l(@task.limit, format: :long) : "なし" %>
   </div>
   <div>
     <%= link_to '戻る', root_path, class: 'btn btn-link' %>
