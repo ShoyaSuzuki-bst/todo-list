@@ -15,19 +15,19 @@
       </div>
     </div>
     <% @tasks.each do |t| %>
-        <%= link_to task_path(t.id), class: 'list-group-item list-group-item-action' do %>
-            <div class="row task-row">
-                <div class="col text-truncate task-name">
-                    <%= t.name %>
-                </div>
-                <div class="col text-truncate task-detail">
-                    <%= t.detail %>
-                </div>
-                <div class="col text-truncate task-created_at">
-                    <%= l t.created_at, format: :short %>
-                </div>
-            </div>
-        <% end %>
+      <%= link_to task_path(t.id), class: 'list-group-item list-group-item-action' do %>
+        <div class="row task-row">
+          <div class="col text-truncate task-name">
+            <%= t.name %>
+          </div>
+          <div class="col text-truncate task-detail">
+            <%= t.detail %>
+          </div>
+          <div class="col text-truncate task-created_at">
+            <%= l t.created_at, format: :short %>
+          </div>
+        </div>
+      <% end %>
     <% end %>
   </div>
 </div>
