@@ -11,7 +11,7 @@ class TasksController < ApplicationController
   # パメータを元にタスクをソートする
   # @pram [string] sort ソート情報(例："id DESC")
   def search
-    @tasks = Task.order("#{params[:sort]} NULLS LAST")
+    @tasks = params[:keyword].present? ? Task.where("name LIKE %#{params[:keyword]}%").order("#{params[:sort]} NULLS LAST") : @tasks = Task.order("#{params[:sort]} NULLS LAST")
     render :index
   end
 
