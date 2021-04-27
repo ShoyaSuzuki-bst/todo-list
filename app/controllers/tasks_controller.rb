@@ -10,7 +10,7 @@ class TasksController < ApplicationController
 
   # パメータを元にタスクをソートする
   # @pram [string] sort ソート情報(例："id DESC")
-  def sort
+  def search
     @tasks = Task.order("#{params[:sort]} NULLS LAST")
     render :index
   end
