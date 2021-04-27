@@ -11,6 +11,9 @@
         タスクの詳細
       </div>
       <div class="col">
+        終了期日
+      </div>
+      <div class="col">
         作成日
       </div>
     </div>
@@ -22,6 +25,9 @@
           </div>
           <div class="col text-truncate task-detail">
             <%= t.detail %>
+          </div>
+          <div class="col text-truncate task-limit">
+            <%= t.limit.present? ? l(t.limit, format: :short) : 'なし' %>
           </div>
           <div class="col text-truncate task-created_at">
             <%= l t.created_at, format: :short %>

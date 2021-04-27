@@ -11,13 +11,7 @@
 
   <body>
     <%= render 'layouts/header' %>
-    <div class="flash_message text-center">
-        <% flash.each do |message_type, message| %>
-          <p class="alert alert-<%= message_type %>">
-            <%= message %>
-          </p>
-        <% end %>
-    </div>
+    <%= render 'layouts/flash_message' %>
     <div class="container">
         <div class="row">
             <div class="col">

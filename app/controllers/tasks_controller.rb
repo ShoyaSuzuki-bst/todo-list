@@ -8,9 +8,10 @@ class TasksController < ApplicationController
     @tasks = Task.order(created_at: :desc)
   end
 
-  # def search
-  #   @tasks = Task.where(params[:keyword]).order(params[:sort])
-  # end
+  def search
+    @tasks = Task.where("name LIKE '%#{params[:keyword]}%'").order(params[:sort])
+    render :index
+  end
 
   # パラメータからidを取得しidに合致するタスクを取得。
   # @param [integer] id タスクのID
