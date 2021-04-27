@@ -5,7 +5,7 @@ class TasksController < ApplicationController
 
   # 全てのタスクモデルをテーブルから取得。
   def index
-    @tasks = Task.all
+    @tasks = Task.order(created_at: :desc)
   end
 
   # パラメータからidを取得しidに合致するタスクを取得。

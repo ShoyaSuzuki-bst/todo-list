@@ -40,6 +40,7 @@ group :development, :test do
   # テスト用
   gem 'rspec-rails'
   gem 'factory_bot_rails'
+  gem 'capybara'
   # コーディング規約チェック
   gem 'rubocop', require: false
   gem 'rubocop-rspec', require: false
@@ -59,6 +60,7 @@ end
 
 group :test do
   gem 'selenium-webdriver'
+  gem 'database_cleaner'
 end
 
 

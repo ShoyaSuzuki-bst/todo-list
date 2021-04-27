@@ -5,21 +5,27 @@
     <div class="list-group-item">
         <div class="row">
             <div class="col">
-                naem
+                タスク名
             </div>
             <div class="col">
-                detail
+                タスクの詳細
+            </div>
+            <div class="col">
+                作成日
             </div>
         </div>
     </div>
     <% @tasks.each do |t| %>
         <%= link_to task_path(t.id), class: 'list-group-item list-group-item-action' do %>
-            <div class="row">
-                <div class="col">
+            <div class="row task-row">
+                <div class="col text-truncate task-name">
                     <%= t.name %>
                 </div>
-                <div class="col text-truncate">
+                <div class="col text-truncate task-detail">
                     <%= t.detail %>
+                </div>
+                <div class="col text-truncate task-created_at">
+                    <%= l t.created_at, format: :short %>
                 </div>
             </div>
         <% end %>
