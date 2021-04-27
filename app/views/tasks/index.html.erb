@@ -1,19 +1,18 @@
 <div class="mt-3 mw-100 text-right text-primary">
-    <%= link_to '＋新規作成', new_task_path %>
+  <%= link_to '＋新規作成', new_task_path %>
 </div>
 <div class="mt-5 list-group list-group-flush">
-    <div class="list-group-item">
-        <div class="row">
-            <div class="col">
-                タスク名
-            </div>
-            <div class="col">
-                タスクの詳細
-            </div>
-            <div class="col">
-                作成日
-            </div>
-        </div>
+  <div class="list-group-item">
+    <div class="row">
+      <div class="col">
+        タスク名
+      </div>
+      <div class="col">
+        タスクの詳細
+      </div>
+      <div class="col">
+        作成日
+      </div>
     </div>
     <% @tasks.each do |t| %>
         <%= link_to task_path(t.id), class: 'list-group-item list-group-item-action' do %>
@@ -30,4 +29,5 @@
             </div>
         <% end %>
     <% end %>
+  <% end %>
 </div>
