@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class ApplicationController < ActionController::Base
-  before_action :basic_auth
+  before_action :basic_auth unless Rails.env.test?
 
   private
 
