@@ -5,8 +5,12 @@ class TasksController < ApplicationController
 
   # 全てのタスクモデルをテーブルから取得。
   def index
-    @tasks = Task.order('created_at DESC')
+    @tasks = Task.order(created_at: :desc)
   end
+
+  # def search
+  #   @tasks = Task.where(params[:keyword]).order(params[:sort])
+  # end
 
   # パラメータからidを取得しidに合致するタスクを取得。
   # @param [integer] id タスクのID
