@@ -15,10 +15,11 @@ RUN mkdir -p $APP_HOME
 WORKDIR $APP_HOME
 COPY Gemfile $APP_HOME/Gemfile
 COPY Gemfile.lock $APP_HOME/Gemfile.lock
-COPY . $APP_HOME
 
 ENV BUNDLE_DISABLE_SHARED_GEMS 1
 RUN bundle install -j4
+
+COPY . $APP_HOME
 
 RUN rm -rf public/assets
 RUN bundle exec rails assets:precompile
