@@ -19,16 +19,13 @@ https://drive.google.com/file/d/1vYhzFwIWhX5mseK_ycKz6x7JzyQhElJJ/view?usp=shari
 
 ### 準備
  - heroku.ymlを追加
-   - 外部に公開しても問題ない環境変数はここで定義する。
-   - `RAILS_LOG_TO_STDOUT=true`はherokuのログが詳細になるため設定しておくべき。
  - Dockerfileに`CMD`を追記
- - herokuのsettingから環境変数にrailのシークレットキーを定義
- - config/environment/production
-   - `config.public_file_server.enabled = true`を設定
-   - `config.assets.compile = true`を設定（パフォーマンス的には適切ではないが、利便性のため設定しておくと無難だと思われる。）
+ - herokuのsettingから環境変数を設定
+   - railのシークレットキーを定義
+   - `RAILS_SERVE_STATIC_FILES`を`true`となるように設定
+   - `RAILS_LOG_TO_STDOUT`を`true`に設定しておくとherokuのログが詳細になるため設定しておくべき。
 
 ### 手順
- - `docker-compose run --rm app rails assets:precompile`
  - `git add .`
  - `git commit -m "適当なコミットメッセージを入力"`
  - `git push heroku master`(マスターブランチではないブランチをプッシュする場合は`git push heroku <ブランチ名>:main`)
