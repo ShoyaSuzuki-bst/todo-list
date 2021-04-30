@@ -12,7 +12,7 @@ class TasksController < ApplicationController
   # @pram [string] sort ソート情報(例："id DESC")
   def sort
     @tasks = Task.order(
-      ActiveRecord::Base.send(:sanitize_sql_for_order, "#{params[:sort]} NULLS LAST")
+      Task.sanitize_sql_for_order("#{params[:sort]} NULLS LAST")
     )
     render :index
   end
