@@ -11,7 +11,11 @@ class TasksController < ApplicationController
   # パメータを元にタスクをソートする
   # @pram [string] sort ソート情報(例："id DESC")
   def search
-    @tasks = params[:keyword].present? ? Task.where("name LIKE %#{params[:keyword]}%").order("#{params[:sort]} NULLS LAST") : @tasks = Task.order("#{params[:sort]} NULLS LAST")
+    unless params[:keyword].present?
+      @tasks = Task.order("#{params[:sort]} NULLS LAST")
+      return render :index
+    end
+    Task.where('name LIKE ?', "%#{params[:keyword]}%").order("#{params[:sort]} NULLS LAST")
     render :index
   end
 
@@ -23,6 +27,7 @@ class TasksController < ApplicationController
   # @return [Task] @task タスクインスタンス
   def new
     @task = Task.new
+    @statuses = Status.all
   end
 
   # フォームから受け取った情報をもとに新しいタスクを作成。
@@ -40,7 +45,9 @@ class TasksController < ApplicationController
 
   # パラメータからidを取得しidに合致するタスクを取得。編集画面として表示。
   # @param [integer] id タスクのID
-  def edit; end
+  def edit
+    @statuses = Status.all
+  end
 
   # フォームから受け取った情報をもとに既存のタスクを更新。
   # @param [string] name タスク名
@@ -77,6 +84,6 @@ class TasksController < ApplicationController
   # ストロングパラメータによってタスクのnameとdetailのみを許可
   # @return [hash] {name: params[:name], detail: params[:detail]} フォームから入力されるデータ
   def task_params
-    params.require(:task).permit(:name, :detail, :limited_at)
+    params.require(:task).permit(:name, :detail, :limited_at, status_attributes: [:id])
   end
 end

@@ -1,5 +1,5 @@
 <div class="mt-5">
-  <%= form_with url: '', local: true do |f| %>
-    <%= render 'layouts/task_form', f: f, is_edit: false %>
+  <%= form_with model: @task, local: true do |f| %>
+    <%= render 'layouts/task_form', f: f, is_edit: false, statuses: @statuses %>
   <% end %>
 </div>

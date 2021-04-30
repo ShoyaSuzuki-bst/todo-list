@@ -22,10 +22,11 @@ ActiveRecord::Schema.define(version: 2021_04_28_055836) do
   end
 
   create_table "tasks", force: :cascade do |t|
-    t.string "name"
+    t.string "name", limit: 25, null: false
     t.text "detail"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.datetime "limited_at"
     t.bigint "status_id"
     t.index ["status_id"], name: "index_tasks_on_status_id"
   end
