@@ -3,6 +3,7 @@
     <%= link_to 'Todo-list', root_path, class: 'navbar-brand' %>
     <%= form_with url: '/tasks/search/limited_at', local: true, method: :get, class: 'd-flex' do |f| %>
       <%= f.text_field :keyword, placeholder: 'キーワードを入力', class: 'form-control me-2' %>
+      <%= f.select :status_id, Status.all.map { |s| [s.name, s.id] }, class: 'mx-5 form-select', selected: 1 %>
       <%= f.submit '検索', class: 'btn btn-outline-success' %>
     <% end %>
   </div>

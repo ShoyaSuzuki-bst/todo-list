@@ -12,10 +12,11 @@ class TasksController < ApplicationController
   # @pram [string] sort ソート情報(例："id DESC")
   def search
     unless params[:keyword].present?
-      @tasks = Task.order("#{params[:sort]} NULLS LAST")
+      @tasks = Task.where(status_id: params[:status_id]).order(Task.sanitize_sql_for_order("#{params[:sort]} NULLS LAST"))
       return render :index
     end
-    Task.where('name LIKE ?', "%#{params[:keyword]}%").order(Task.sanitize_sql_for_order("#{params[:sort]} NULLS LAST"))
+    @tasks = Task.where('name LIKE ?', "%#{params[:keyword]}%").where(status_id: params[:status_id]).order(Task.sanitize_sql_for_order("#{params[:sort]} NULLS LAST"))
+    render :index
   end
 
   # パラメータからidを取得しidに合致するタスクを取得。
