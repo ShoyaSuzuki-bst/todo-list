@@ -15,8 +15,7 @@ class TasksController < ApplicationController
       @tasks = Task.order("#{params[:sort]} NULLS LAST")
       return render :index
     end
-    Task.where('name LIKE ?', "%#{params[:keyword]}%").order("#{params[:sort]} NULLS LAST")
-    render :index
+    Task.where('name LIKE ?', "%#{params[:keyword]}%").order(Task.sanitize_sql_for_order("#{params[:sort]} NULLS LAST"))
   end
 
   # パラメータからidを取得しidに合致するタスクを取得。
