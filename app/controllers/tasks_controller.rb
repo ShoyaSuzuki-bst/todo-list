@@ -8,6 +8,15 @@ class TasksController < ApplicationController
     @tasks = Task.order(created_at: :desc)
   end
 
+  # パメータを元にタスクをソートする
+  # @pram [string] sort ソート情報(例："id DESC")
+  def sort
+    @tasks = Task.order(
+      Task.sanitize_sql_for_order("#{params[:sort]} NULLS LAST")
+    )
+    render :index
+  end
+
   # パラメータからidを取得しidに合致するタスクを取得。
   # @param [integer] id タスクのID
   def show; end
@@ -70,6 +79,6 @@ class TasksController < ApplicationController
   # ストロングパラメータによってタスクのnameとdetailのみを許可
   # @return [hash] {name: params[:name], detail: params[:detail]} フォームから入力されるデータ
   def task_params
-    params.require(:task).permit(:name, :detail)
+    params.require(:task).permit(:name, :detail, :limited_at)
   end
 end

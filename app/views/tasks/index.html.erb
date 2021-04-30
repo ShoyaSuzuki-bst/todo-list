@@ -1,6 +1,12 @@
 <div class="mt-3 mw-100 text-right text-primary">
   <%= link_to '＋新規作成', new_task_path %>
 </div>
+<%= link_to '/tasks/sort/limited_at' do %>
+  <button class="btn btn-link">期日が近い順</button>
+<% end %>
+<%= link_to '/tasks/sort/created_at DESC' do %>
+  <button class="btn btn-link">新しい順</button>
+<% end %>
 <div class="mt-5 list-group list-group-flush">
   <div class="list-group-item">
     <div class="row">
@@ -9,6 +15,9 @@
       </div>
       <div class="col">
         タスクの詳細
+      </div>
+      <div class="col">
+        終了期日
       </div>
       <div class="col">
         作成日
@@ -22,6 +31,9 @@
           </div>
           <div class="col text-truncate task-detail">
             <%= t.detail %>
+          </div>
+          <div class="col text-truncate task-limit">
+            <%= t.limited_at.present? ? l(t.limited_at, format: :short) : 'なし' %>
           </div>
           <div class="col text-truncate task-created_at">
             <%= l t.created_at, format: :short %>
