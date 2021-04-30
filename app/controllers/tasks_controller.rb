@@ -11,7 +11,9 @@ class TasksController < ApplicationController
   # パメータを元にタスクをソートする
   # @pram [string] sort ソート情報(例："id DESC")
   def sort
-    @tasks = Task.order(sanitize_sql_for_order("#{params[:sort]} NULLS LAST"))
+    @tasks = Task.order(
+      ActiveRecord::Base.send(:sanitize_sql_for_order, "#{params[:sort]} NULLS LAST")
+    )
     render :index
   end
 
