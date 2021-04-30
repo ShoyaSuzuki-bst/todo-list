@@ -12,14 +12,15 @@
 <br>
 <%= f.text_area :detail, placeholder: 'タスクの詳細', size: '60x12', class: 'form-control' %>
 <br>
+
 <div class="row">
   <div class="mr-auto">
+
     <label class="control-label" for="">終了期限</label>
     <%= f.datetime_field :limited_at, class: 'form-control　form-inline' %>
-    <%= f.fields_for :status do |sf| %>
-      <label class="control-label" for="">ステータス</label>
-      <%= sf.select :status_id, statuses.map { |s| [s.name, s.id] }, selected: 1 %>
-    <% end %>
+
+    <label class="control-label" for="">ステータス</label>
+    <%= f.select :status_id, Status.all.map { |s| [s.name, s.id] }, selected: 1 %>
   </div>
 
   <% if local_assigns[:is_edit].present? %>

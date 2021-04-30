@@ -27,7 +27,6 @@ class TasksController < ApplicationController
   # @return [Task] @task タスクインスタンス
   def new
     @task = Task.new
-    @statuses = Status.all
   end
 
   # フォームから受け取った情報をもとに新しいタスクを作成。
@@ -45,9 +44,7 @@ class TasksController < ApplicationController
 
   # パラメータからidを取得しidに合致するタスクを取得。編集画面として表示。
   # @param [integer] id タスクのID
-  def edit
-    @statuses = Status.all
-  end
+  def edit; end
 
   # フォームから受け取った情報をもとに既存のタスクを更新。
   # @param [string] name タスク名
@@ -84,6 +81,6 @@ class TasksController < ApplicationController
   # ストロングパラメータによってタスクのnameとdetailのみを許可
   # @return [hash] {name: params[:name], detail: params[:detail]} フォームから入力されるデータ
   def task_params
-    params.require(:task).permit(:name, :detail, :limited_at, status_attributes: [:id])
+    params.require(:task).permit(:name, :detail, :limited_at, :status_id)
   end
 end
