@@ -12,6 +12,7 @@ RSpec.describe "Tasks", type: :system do
     context 'access /tasks/index' do
       let(:valid_created_at_array) { Task.order(created_at: :desc).pluck(:created_at).map{ |created_at| I18n.l(created_at, format: :short) } }
       let(:valid_limited_at_array) { Task.order(:limited_at).pluck(:limited_at).map{ |created_at| I18n.l(created_at, format: :short) } }
+
       it 'is expected to sort tasks descending order of created_at' do
         visit tasks_path
         # 表示されている内容から、全タスクの作成日時(create_at)を取得する。
