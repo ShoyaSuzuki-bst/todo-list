@@ -18,7 +18,7 @@
     <%= f.datetime_field :limited_at, class: 'form-control　form-inline' %>
     <%= f.fields_for :status do |sf| %>
       <label class="control-label" for="">ステータス</label>
-      <%= sf.select :status_id, statuses.map{|s| [s.name, s.id]}, selected: 1 %>
+      <%= sf.select :status_id, statuses.map { |s| [s.name, s.id] }, selected: 1 %>
     <% end %>
   </div>
 
