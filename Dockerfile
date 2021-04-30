@@ -21,8 +21,8 @@ RUN bundle install -j4
 
 COPY . $APP_HOME
 
-RUN rm -rf public/assets \
-    && bundle exec rails assets:precompile
+RUN rm -rf public/assets
+RUN bundle exec rails assets:precompile
 
 COPY entrypoint.sh /usr/bin/
 RUN chmod +x /usr/bin/entrypoint.sh
